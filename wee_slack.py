@@ -2320,7 +2320,8 @@ class SlackUser(object):
         for key, value in kwargs.items():
             setattr(self, key, value)
 
-        self.name = nick_from_profile(self.profile, kwargs["name"])
+        self.name = nick_from_profile(self.profile, kwargs["name"]).lower()
+
         self.username = kwargs["name"]
         self.update_color()
 
